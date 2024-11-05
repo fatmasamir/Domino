@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: "localhost",
+    host: "https://66fac2bc57ee60053687328f--strong-cuchufli-5933e1.netlify.app",
     port: 3000,
   },
 });
