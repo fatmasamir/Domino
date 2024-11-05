@@ -1,35 +1,6 @@
 <template>
   <Layout />
 </template> 
-<script>
-// import { initializeApp } from "firebase/app";
-import { getMessaging, getToken,onMessage } from "firebase/messaging";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAHv-dji2G4lZZmDJT1RLk7St3ca-YMbrs",
-  authDomain: "uni-bus-fd782.firebaseapp.com",
-  projectId: "uni-bus-fd782",
-  storageBucket: "uni-bus-fd782.appspot.com",
-  messagingSenderId: "537386231648",
-  appId: "1:537386231648:web:40ef1c7d889b4d2ca42005",
-  measurementId: "G-GZL92T8Z45"
-};
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging();
-onMessage(messaging, (payload) => {
-  console.log('Message received. ', payload);
-});
-getToken(messaging, { vapidKey: 'BFizV_aIpebZ3AKlCiP2m6EKhPqDGny_rRj7Q7l9wpY4HysGKq5ht_JqKrXPyUKATWfERxmaZmg85Isi_GbLay0' }).then((currentToken) => {
-  if (currentToken) {
-    console.log('Token = ',currentToken);
-    localStorage.setItem('fcm_token',currentToken);
-  } else {
-    console.log('No registration token available. Request permission to generate one.');
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-});
-</script>
 <script setup>
 import { onMounted } from "vue";
 import Layout from "@/components/Layout/index.vue";
